@@ -1,0 +1,30 @@
+.content-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    transition: all .2s ease;
+    z-index: 99;
+}
+
+.content-nav .logo-dflix {
+    height: 30px;
+    width: 100px;
+}
+
+.content-nav .icone-lupa-pesquisar {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+
+    .content-nav {
+        background: #000;
+    }
+    
+}

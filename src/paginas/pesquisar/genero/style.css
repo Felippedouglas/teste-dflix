@@ -1,0 +1,8 @@
+.div-genero-pesquisado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    font-weight: bold;
+    font-size: 3vw;
+}

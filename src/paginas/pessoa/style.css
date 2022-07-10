@@ -1,0 +1,81 @@
+.container-pessoa {
+    display: flex;
+    margin: 10px;
+    margin-top: 50px;
+}
+
+.section-pessoa {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    background-color: #202020;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.section-pessoa img {
+    margin: 0 auto;
+    height: 300px;
+    width: 200px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.section-pessoa h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.section-pessoa span {
+    font-size: 14px;
+    color: #ccc;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    border-radius: 50px;
+}
+
+.section-biográfia-pessoa {
+    margin: 10px 0 50px 0;
+}
+
+.section-biográfia-pessoa h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.section-biográfia-pessoa span {
+    color: #ccc;
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+
+    .container-pessoa {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .section-pessoa, .section-biográfia-pessoa {
+        margin: 10px;
+    }
+
+    .section-pessoa {
+        align-items: center;
+    }
+
+    .section-pessoa img {
+        margin-bottom: 15px;
+        height: 250px;
+    }
+
+    .section-biográfia-pessoa {
+        margin-bottom: 50px !important;
+    }
+
+    .section-biográfia-pessoa h2 {
+        font-size: 1.1rem;
+    }
+}
