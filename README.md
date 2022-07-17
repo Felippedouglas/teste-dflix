@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# DFLIX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A [DFLIX](www.dflix.online) é um  projeto feito com React, que consome as api's de filmes e séries do ***The movie database*** (informações dos filmes e séries), e ***Warez cdn*** (Video dos filmes e séries).
 
-## Available Scripts
+Sendo possível encontrar informações de filmes e séries como: Nome e descrição, elenco, data de lançamento, duração, avaliações, comentários, trailers, pesquisar filmes, séries e atores. E, atráves do warez cdn, ter acesso aos filmes e séries disponíveis.
 
-In the project directory, you can run:
+## `|Página Inicial`
 
-### `npm start`
+Na página inicial é possivel encontrar um Filme ou Série principal recomendada, 20 filmes e 20 séries mais populares do momento.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src='./assets/imgs/pagina-inicial.png' alt='página inicial' style='margin-bottom: 50px'>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## `|Página Filme/Série`
 
-### `npm test`
+Na página do filme ou série é possivel encontrar as suas principais informações, como: elenco, data de lançamento, avaliação, gêneros, trailers, comentários, sugestões de filmes/série...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src='./assets/imgs/pagina-filme-serie.png' alt='página filme/série'>
 
-### `npm run build`
+## `|Página 'Pessoa'`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Na página 'pessoa' é possível encontrar informações do(a) ator/atriz, diretores e dubladores. Nome, biográfia, idade, ano de nascimento, cidade natal e filmes/séries participadas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src='./assets/imgs/pagina-pessoa.png' alt='página pessoa'>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## `|Página Pesquisar`
 
-### `npm run eject`
+Na página pesquisar é possível obter filmes, séries e pessoas (atores, atrizes, dubladores e diretores).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src='./assets/imgs/pagina-pesquisar.png' alt='página pesquisar'>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## `|Pagina Generos`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Na Página de gêneros é possivel econtrar os filmes e séries de acordo com o gênero desejado.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src='./assets/imgs/pagina-generos.png' alt='página gêneros'>
