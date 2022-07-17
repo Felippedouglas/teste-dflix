@@ -1,9 +1,8 @@
-import { React, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import Erro404 from "../../componentes/404"
-import { APIKey } from "../../config/key"
-import PessoaFilmeParticipado from "./filmes"
-import PessoaSerieParticipado from "./series"
+import { React, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { APIKey } from "../../config/key";
+import PessoaFilmeParticipado from "./filmes";
+import PessoaSerieParticipado from "./series";
 import './style.css'
 
 export default function Pessoa() {
@@ -18,11 +17,10 @@ export default function Pessoa() {
         .then(Response => Response.json())
         .then(data => {
             setPessoa(data)
-            console.log(data)
-            })
+        })
             
-            document.title = `DFLIX`;
-        }, [])
+        document.title = `DFLIX`;
+    }, [idPessoa])
         
     // definir idade pessoa
     setTimeout(()=>{
@@ -68,9 +66,7 @@ export default function Pessoa() {
                 }
                 setIdadePessoa(idade(pessoa.birthday.slice(0,4), pessoa.birthday.slice(5,7), pessoa.birthday.slice(8,10)));
             }
-        } //else if(pessoa.success == false) {
-           // window.location.href = '/'
-       // }
+        }
     }, 100)
 
     setTimeout(()=>{
@@ -78,6 +74,10 @@ export default function Pessoa() {
             document.title = `${pessoa.name} - DFLIX`;
         }
     }, 5000)
+
+    function redirecionarErro() {
+        window.location = '/404'
+    }
     
     return (
     <>
@@ -117,7 +117,7 @@ export default function Pessoa() {
             </div>
         }
         {pessoa.success == false &&
-            <Erro404 />
+            redirecionarErro()
         }
     </>
     )

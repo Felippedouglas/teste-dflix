@@ -8,11 +8,59 @@
     margin-left: 20px;
 }
 
+.div-name-categoria-movie {
+    display: flex;
+    align-items: center;
+}
+
 .h2-filme-serie-titulo-categoria {
     position: relative;
     font-size: 18px;
     text-transform: uppercase;
-    margin-left: 20px;
+    margin: 0 20px;
+}
+
+.div-escolher-categoria-movie {
+    display: flex;
+}
+
+.section-categoria-movie {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    padding: 3px;
+}
+
+.section-categoria-movie input {
+    display: none;
+}
+
+.section-categoria-movie label {
+    background: #303030;
+    color: #ccc;
+    border: 2px solid transparent;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+
+.section-categoria-movie label:hover {
+    background: #383838;
+    color: #fff;
+}
+
+.section-categoria-movie label span {
+    padding: 10px 20px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.section-categoria-movie input:checked ~ label {
+    border: 2px solid #fff;
+    background: #fff;
+    color: #181818;
 }
 
 .h2-filme-serie-titulo-categoria::before {
@@ -187,7 +235,46 @@
     }
 
     .content-movies {
+        padding-right: 10px;
+    }
+
+    .content-filmes, .content-series {
         margin-left: 0;
+    }
+    
+    .div-name-categoria-movie {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .div-escolher-categoria-movie {
+        margin: 15px 0 0 10px;
+        padding-right: 15px;
+        overflow: auto;
+        max-width: 100%;
+    }
+
+    .div-escolher-categoria-movie::-webkit-scrollbar {
+        display: none;
+    }
+
+    .section-categoria-movie {
+        margin: 0;
+    }
+
+    .section-categoria-movie label {
+        font-size: .7rem;
+        padding: 7px 5px;
+    }
+
+    .section-categoria-movie label span {
+        padding: 5px 10px;
+        border-radius: 50px;
+    }
+
+    .div-movies {
+        padding: 15px 20px 10px 0;
+        margin: 0 -5px 20px 10px;
     }
 
     .div-movies .movie {

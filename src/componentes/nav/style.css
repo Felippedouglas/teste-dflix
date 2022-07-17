@@ -10,21 +10,105 @@
     z-index: 99;
 }
 
-.content-nav .logo-dflix {
+.content-nav a:hover {
+    transition: all .3s ease;
+    opacity: .8;
+}
+
+.content-nav .section-img-list-nav {
+    display: flex;
+    align-items: center;
+}
+
+.section-img-list-nav .logo-dflix {
     height: 30px;
     width: 100px;
 }
 
-.content-nav .icone-lupa-pesquisar {
+.div-links-nav ul {
+    margin-left: 50px;
+}
+
+.div-links-nav ul a {
+    color: #fff;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 15px;
+    opacity: .6;
+    transition: all .3s ease;
+}
+
+.div-links-nav ul a:hover {
+    opacity: 1;
+}
+
+.div-links-nav ul a:last-child {
+    margin-right: 0;
+}
+
+.section-lupa-menu-mobile {
+    display: flex;
+    align-items: center;
+}
+
+.section-lupa-menu-mobile .icone-lupa-pesquisar {
     color: #fff;
     font-size: 18px;
     font-weight: 600;
+}
+
+.div-abrir-pop-up-nav {
+    display: none;
+    margin-left: 10px;
+}
+
+.div-fechar-pop-up-nav {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.div-fechar-pop-up-nav, .div-abrir-pop-up-nav {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 35px;
+    width: 35px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+}
+
+.div-menu-hamburguer-mobile ul a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 13px 15px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    opacity: .7;
+}
+
+.div-menu-hamburguer-mobile ul a:hover {
+    background: #404040;
+    opacity: 1;
 }
 
 @media (max-width: 600px) {
 
     .content-nav {
         background: #000;
+    }
+    
+    .div-links-nav {
+        display: none;
+    }
+
+    .div-abrir-pop-up-nav {
+        display: flex;
     }
     
 }

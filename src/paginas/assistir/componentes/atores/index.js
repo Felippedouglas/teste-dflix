@@ -18,7 +18,6 @@ export default function Atores(props) {
         .then(Response => Response.json())
         .then(data => {
             setAtores(data.cast);
-            console.log(data.cast);
             })
 
             if (popUpAtores == '=true') {
@@ -33,39 +32,45 @@ export default function Atores(props) {
     function abrirElenco() {
         setPopUp(!popUp);
         window.location.href = `/#/elenco=true/${filmeSerie}&${id}`;
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function fecharElenco() {
+        setPopUp(!popUp);
+        window.location.href = `/#/assistir=${filmeSerie}&${id}`;
+        document.body.style.overflow = 'auto';
     }
 
     return (
         <>
 
-            <div className='div-atores'>
+            <div className='div-atores' id='div-atores'>
 
                 {atores.map(ator =>{
-                    if (ator.order <= 3) {
-                        return(
-                            <Tippy content='Detalhes'>
-                                <section className='ator' onClick={()=>redirecionar(ator.id)}>
-                                    <link></link>
-                                    <img loading="lazy" src={`${image_path}${ator.profile_path}`} alt={ator.name} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png";}}/>
-                                    <section className='section-nome-ator-personagem'>
-                                        <span className='nome-ator'>{ator.original_name}</span>
-                                        <span className='nome-personagem'>{ator.character}</span>
-                                    </section>
+                    return(
+                        <Tippy content='Detalhes'>
+                            <section className='ator' onClick={()=>redirecionar(ator.id)}>
+                                <link></link>
+                                <img loading="lazy" src={`${image_path}${ator.profile_path}`} alt={ator.name} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png";}}/>
+                                <section className='section-nome-ator-personagem'>
+                                    <span className='nome-ator'>{ator.original_name}</span>
+                                    <span className='nome-personagem'>{ator.character}</span>
                                 </section>
-                            </Tippy>
-                        )
-                    }
+                            </section>
+                        </Tippy>
+                    )
                 })}
-
-                <Tippy content='Ver Elenco'>
-                    <span className='span-abrir-popup-atores' onClick={()=>abrirElenco()}><i class="fas fa-plus-circle"></i></span>
-                </Tippy>
+                
+                <span className='span-abrir-popup-atores' onClick={()=>abrirElenco()}><i class="fas fa-plus-circle"></i></span>
 
             </div>
             
             <PopUp popUp={popUp} setPopUp={setPopUp}>
 
-                <h2 className='h2-titulo-popup'>Elenco</h2>
+                <h2 className='h2-titulo-popup'>
+                    <span>Elenco</span>
+                    <button className='bt-fechar-popup' onClick={()=>fecharElenco()}><i class="fa-solid fa-xmark"></i></button>
+                </h2>
                 {atores.map(ator =>{
                     if (ator) {
                         return (

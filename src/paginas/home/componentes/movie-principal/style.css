@@ -217,7 +217,7 @@
     }
 
     .content-movie-principal .div-detalhes-movie-principal {
-        top: 30%;
+        margin-top: -10px;
     }
 
     .section-classificacao-movie-principal .span-classificacao-movie-principal {
@@ -243,7 +243,7 @@
 @media (max-width: 600px) {
 
     .content-movie-principal .div-detalhes-movie-principal {
-        margin-top: -20px;
+        margin-top: 0;
     }
 
     .informacoes-movie-principal {

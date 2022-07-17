@@ -15,7 +15,6 @@ export default function PessoaSerieParticipado(props) {
         .then(Response => Response.json())
         .then(data => {
             setSeriesParticipados(data)
-            console.log(data)
             })
     }, [])
 

@@ -13,7 +13,6 @@ export default function MoviePrincipal() {
         .then(Response => Response.json())
         .then(data => {
             setMovie(data);
-            console.log(movie)
             });
     }, []);
 

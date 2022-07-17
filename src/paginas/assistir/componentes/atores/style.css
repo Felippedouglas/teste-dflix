@@ -16,8 +16,8 @@
     position: sticky;
     right: -2px;
     height: 100%;
-    padding: 0 10px 0 5px;
-    background-image: linear-gradient(to left, #101010, #101010b4);
+    padding: 0 10px 0 25px;
+    background-image: linear-gradient(to left, #101010, #101010b4, #10101000);
 }
 
 .ator {

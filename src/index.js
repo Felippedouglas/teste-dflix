@@ -20,7 +20,7 @@ setTimeout(()=>{
         <Route path="/elenco:popUpAtores/:filmeSerie&:id/" element={<Assistir/>}/>
         <Route path="/pesquisar/" element={<Pesquisar/>}/>
         <Route path="/pesquisar/search=:movieName&pagina=:numeroPagina/" element={<Pesquisar/>}/>
-        <Route path="/genero=:generoPesquisado&pagina=:numeroPagina/" element={<PesqusiarGenero/>}/>
+        <Route path="/:filmeSerie/genero=:idGenero/:generoPesquisado&infantil=:infantil&pagina=:numeroPagina/" element={<PesqusiarGenero/>}/>
         <Route path="/pessoa=:idPessoa/" element={<Pessoa/>}/>
       </Routes>
     </HashRouter>,

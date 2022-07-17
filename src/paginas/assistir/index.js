@@ -6,7 +6,6 @@ import Comentarios from "../assistir/componentes/comentarios";
 import VideosFilmeSerie from "./componentes/trailers-filme-serie";
 import Atores from "./componentes/atores";
 import Compartilhar from "./componentes/compartilhar";
-import Erro404 from "../../componentes/404"
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import './style.css';
@@ -35,7 +34,7 @@ export default function Assistir() {
         .then(data => {
 
             setMovie(data);
-            console.log(data);
+            
             setTimeout(()=>{
                 if (data.title) {
                     document.title = `Assistir ${data.title} | DFLIX`;
@@ -71,8 +70,12 @@ export default function Assistir() {
         
     };
     
-    function pesquisarGenero(genero) {
-        window.location.href = `/#/genero=${genero}&pagina=1/`;
+    function pesquisarGenero(genero, idGenero) {
+        window.location.href = `/#/${filmeSerie}/genero=${idGenero}/${genero}&infantil=false&pagina=1`;
+    }
+
+    function redirecionarErro() {
+        window.location = '/404'
     }
 
     return(
@@ -131,7 +134,7 @@ export default function Assistir() {
                                             movie.genres.map((genero)=>{
                                                 return(
                                                     <Tippy content={`Ver ${definirFilmeSerie}s de ${genero.name}`}>
-                                                        <span onClick={()=>pesquisarGenero(genero.name)}>{genero.name}</span>
+                                                        <span onClick={()=>pesquisarGenero(genero.name, genero.id)}>{genero.name}</span>
                                                     </Tippy>
                                                 )
                                             })
@@ -152,7 +155,7 @@ export default function Assistir() {
                 </div>
             }
             {movie.success == false &&
-                <Erro404 />
+                redirecionarErro()
             }
         </>
     )

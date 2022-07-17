@@ -10,7 +10,7 @@ export default function Sugestao(props) {
     const { filmeSerie } = useParams();
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/${filmeSerie}/${props.idmovie}/similar?api_key=${APIKey}&language=pt-BR&page=1`)
+        fetch(`https://api.themoviedb.org/3/${filmeSerie}/${props.idmovie}/recommendations?api_key=${APIKey}&language=pt-BR&page=1`)
             .then(Response => Response.json())
             .then(data => {
                 setMovies(data.results);
@@ -47,7 +47,7 @@ export default function Sugestao(props) {
     }, 100)
 
     return(
-        <div className="content-movies content-sugestoes">
+        <div className="content-movies content-sugestoes" id="content-sugestoes">
             <h2 className="h2-sugestoes h2-titulo-sections">SUGESTÕES</h2>
             <div className="div-movies div-filmes-sugestões" id="movie-list-sugestoes">
                 <button className="bt-slide bt-left-slide" id="bt-left-slide-sugestoes" onClick={btLeftSlideSugestoes}><i class="fas fa-angle-left"></i></button>

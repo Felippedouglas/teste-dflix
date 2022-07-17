@@ -13,36 +13,33 @@ export default function Pesquisar() {
     const image_path = 'https://image.tmdb.org/t/p/w500';
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${APIKey}&language=pt-BR&page=${numeroPagina}&query=${filmePesquisado}`)
+        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${APIKey}&language=pt-BR&page=${numeroPagina}&adult=false&query=${movieName}`)
             .then(Response => Response.json())
             .then(data => {
                 setMovies(data.results);
-                console.log(data.results)
-                setTimeout(()=>{
-                    if (data.results.length != 0) {
-                        document.getElementById('h2-resultados-encontrados').innerHTML = `Resultados Encontrados para: ''${filmePesquisado}''`
-                    } else if (data.results.length == 0) {
-                        document.getElementById('h2-resultados-encontrados').innerHTML = `Nenhum Resultado Encontrado: ''${filmePesquisado}''`
-                    }
-                }, 500)
-                setPaginasMovies(data.total_pages);
-                    document.getElementById('div-botoes-paginas-pesquisar').innerHTML = `<h3 class="h3-pagina-atual">Página atual: ${numeroPagina}</h3>`
-                    for (var i=1; i <= data.total_pages && i <= 10; i++) {
-                        document.getElementById('div-botoes-paginas-pesquisar').innerHTML += `
-                        <a class='bt-pagina-pesquisar' href='/#/pesquisar/search=${filmePesquisado}&pagina=${i}' onclick='setTimeout(()=> {window.location.reload()}, 100)'>${i}</a>
-                        `
-                    }
-                })
 
+                if (data.results.length != 0) {
+                    document.getElementById('h2-resultados-encontrados').innerHTML = `Resultados Encontrados para: ''${filmePesquisado}''`
+                } else if (data.results.length == 0) {
+                    document.getElementById('h2-resultados-encontrados').innerHTML = `Nenhum Resultado Encontrado: ''${filmePesquisado}''`
+                }
+
+                setPaginasMovies(data.total_pages);
+                document.getElementById('div-botoes-paginas-pesquisar').innerHTML = `<h3 class="h3-pagina-atual">Página atual: ${numeroPagina}</h3>`
+                for (var i=1; i <= data.total_pages && i <= 10; i++) {
+                    document.getElementById('div-botoes-paginas-pesquisar').innerHTML += `
+                    <a class='bt-pagina-pesquisar' href='/#/pesquisar/search=${filmePesquisado}&pagina=${i}' onclick='setTimeout(()=> {window.scrollTo(0,0)}, 1)'>${i}</a>
+                    `
+                }
+                })
                 document.title = 'Pesqsuisar - DFLIX';
-    }, [])
+    }, [movieName, numeroPagina])
 
     document.addEventListener('keydown', function(e) {
         switch (e.keyCode) {
             case 13:
                 document.getElementById("bt-pequisar-movie").click();
                 break;
-    
         }
     }, false);
     
@@ -53,14 +50,10 @@ export default function Pesquisar() {
     }
  
     const inputPesquisar = document.getElementById("input-pesquisar");
+
     function recarregarPagina() {
         if(inputPesquisar.value && inputPesquisar.value.length >= 3) {
-            setTimeout(()=> {
-                setTimeout(()=> {
-                    window.location.reload();
-                }, 100);
-                window.location.href = `/#/pesquisar/search=${filmePesquisado}&pagina=1`;
-            }, 100);
+            window.location.href = `/#/pesquisar/search=${filmePesquisado}&pagina=1`;
         } else if (inputPesquisar.value.length <= 3) {
             alert('digite um valor maior que 3');
         } else {
@@ -68,30 +61,33 @@ export default function Pesquisar() {
         }
     };
 
-    setTimeout(()=>{
-        document.getElementById('div-movie-pesquisar').style.display = 'flex';
-        document.getElementById('div-pessoa-pesquisar').style.display = 'flex';
-    }, 2000)
+    setTimeout(() => {
+
+        if (movieName != '') {
+            document.getElementById('div-movie-pesquisar').style.display = 'flex';
+            document.getElementById('div-pessoa-pesquisar').style.display = 'flex';
+        }
+    }, 1);
 
     return (
         <div className="componente-pequisar" id="componente-pequisar">
             <header className="header-componente-pesquisar">
                 <section className="section-input-pesquisar">
-                    <input type='text' id="input-pesquisar" value={name} placeholder='Pesquise por filmes e séries' onChange={(e)=>definirFilmePesquisado(e.target.value)}/>
+                    <input autoFocus type='text' id="input-pesquisar" focus value={name} placeholder='Pesquise por filmes e séries' onChange={(e)=>definirFilmePesquisado(e.target.value)}/>
                     <a onClick={()=>recarregarPagina()} id='bt-pequisar-movie'><i className="fas fa-search"></i></a>
                 </section>
                 {numeroPagina &&
                     <h2 id="h2-resultados-encontrados"></h2>
                 }
             </header>
-            {numeroPagina &&
+            {numeroPagina && movieName != '' &&
                 <>
                     <div className="div-movie-pesquisar" id="div-movie-pesquisar">
                         {movies.map(movie => {
                             return (
                                 <>
                                     {((movie.release_date || movie.first_air_date) && movie.poster_path) &&
-                                        <div className='movie-pequisar'>
+                                        <div className='movie-pesquisar' title={movie.title? movie.title : movie.name}>
                                             <Link to={`/assistir=${movie.media_type}&${movie.id}`}>
                                                 <img loading="lazy" src={`${image_path}${movie.poster_path}`} alt={movie.name} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src="https://st.depositphotos.com/1552219/1336/i/950/depositphotos_13364366-stock-photo-a-wrong-symbol.jpg";}}/>
                                                 <section className="section-informacoes-movie-pesquisar">

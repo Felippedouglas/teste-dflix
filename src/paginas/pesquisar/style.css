@@ -78,7 +78,7 @@
     padding: 1.2rem 0 0 .7rem;
 }
 
-.movie-pequisar, .pessoa-pesquisar {
+.movie-pesquisar, .pessoa-pesquisar {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -88,7 +88,7 @@
     transition: all 0.5s ease;
 }
 
-.movie-pequisar:hover {
+.movie-pesquisar:hover {
     transform: scale(1.04);
 }
 
@@ -126,7 +126,7 @@
     justify-content: center;
 }
 
-.movie-pequisar img, .pessoa-pesquisar img {
+.movie-pesquisar img, .pessoa-pesquisar img {
     min-width: 180px;
     max-width: 180px;
     min-height: 280px;
@@ -149,7 +149,7 @@
     white-space: nowrap;
 }
 
-.movie-pequisar a, .pessoa-pesquisar a {
+.movie-pesquisar a, .pessoa-pesquisar a {
     position: relative;
     max-height: 300px;
     text-decoration: none;
@@ -226,11 +226,11 @@
 
 @media (max-width: 1000px) {
 
-    .movie-pequisar, .pessoa-pesquisar {
+    .movie-pesquisar, .pessoa-pesquisar {
         margin-right: .7rem;
     }
 
-    .movie-pequisar img, .pessoa-pesquisar img {
+    .movie-pesquisar img, .pessoa-pesquisar img {
         min-width: 150px;
         max-width: 150px;
         min-height: 230px;
@@ -249,11 +249,11 @@
 
 @media (max-width: 800px) {
 
-    .movie-pequisar, .titulo-pessoa {
+    .movie-pesquisar, .titulo-pessoa {
         margin-right: .7rem;
     }
 
-    .movie-pequisar img, .pessoa-pesquisar img {
+    .movie-pesquisar img, .pessoa-pesquisar img {
         min-width: 130px;
         max-width: 130px;
         min-height: 200px;
@@ -286,7 +286,7 @@
         justify-content: center;
     }
 
-    .movie-pequisar span {
+    .movie-pesquisar span {
         font-size: 85%;
     }
 

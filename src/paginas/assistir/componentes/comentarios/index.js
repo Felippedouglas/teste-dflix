@@ -26,6 +26,13 @@ export default function Comentarios(props) {
     function abrirComentarios() {
         setPopUp(!popUp)
         window.location.href = `/#/comentarios=true/${filmeSerie}&${id}`
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function fecharComentarios() {
+        setPopUp(!popUp);
+        window.location.href = `/#/assistir=${filmeSerie}&${id}`;
+        document.body.style.overflow = 'auto';
     }
 
     const mapComentarios = comentarios.map((comentario) => {
@@ -70,7 +77,10 @@ export default function Comentarios(props) {
             }  
 
             <PopUp popUp={popUp} setPopUp={setPopUp}>
-                <h2 className='h2-titulo-popup'>Comentários</h2>
+                <h2 className='h2-titulo-popup'>
+                    <span>Comentários</span>
+                    <button className='bt-fechar-popup' onClick={()=>fecharComentarios()}><i class="fa-solid fa-xmark"></i></button>
+                </h2>
                 {
                     comentarios.map((comentario) => {
                         if(comentarios) {
@@ -80,7 +90,7 @@ export default function Comentarios(props) {
                                         <img loading="lazy" className="img-perfil-comentario" src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt={comentario.author_details.username}/>
                                         <h2 className="nome-autor-comentario">@{comentario.author_details.username}</h2>
                                         {comentario.author_details.rating &&
-                                            <h3 className="avaliacao-autor-comentario"><i class="fas fa-star"></i> {comentario.author_details.rating}.0</h3>
+                                            <h3 className="avaliacao-autor-comentario"><i class="fas fa-star"></i> {comentario.author_details.rating}</h3>
                                         }
                                     </header>
                                     <main className="main-comentario">

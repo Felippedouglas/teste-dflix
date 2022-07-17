@@ -8,13 +8,13 @@ export default function PagPopularSerie(props) {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/tv/${props.categoriaMovie}?api_key=${APIKey}&language=pt-BR`)
+        fetch(`https://api.themoviedb.org/3/tv/${props.categoriaSerie}?api_key=${APIKey}&language=pt-BR`)
             .then(Response => Response.json())
             .then(data => {
                 setMovies(data.results)
             })
 
-    }, [])
+    }, [props.categoriaSerie])
 
 
     var divSlider = document.getElementById("movie-list1")
@@ -33,10 +33,32 @@ export default function PagPopularSerie(props) {
         btLeft.style.padding = "0 40px 0 20px";
     }
 
+    setTimeout(()=>{
+        if(props.categoriaSerie == 'popular') {
+            document.getElementById("label-categoria-serie-1").click();
+        }
+    }, 1)
+
     return(
         
         <div className="content-movies content-series">
-            <h2 className="h2-filme-serie-titulo-categoria">Séries</h2>
+            <div className="div-name-categoria-movie">
+                <h2 className="h2-filme-serie-titulo-categoria">Séries</h2>
+                <div className="div-escolher-categoria-movie">
+                    <section className="section-categoria-movie">
+                        <input type="radio" name="input-radio-categoria-serie" id="input-radio-categoria-serie-1"/>
+                        <label htmlFor="input-radio-categoria-serie-1" id="label-categoria-serie-1">
+                            <span onClick={()=>props.setCategoriaSerie('popular')}>Populares</span>
+                        </label>
+                    </section>
+                    <section className="section-categoria-movie">
+                        <input type="radio" name="input-radio-categoria-serie" id="input-radio-categoria-serie-2"/>
+                        <label htmlFor="input-radio-categoria-serie-2">
+                            <span onClick={()=>props.setCategoriaSerie('top_rated')}>Avaliações</span>
+                        </label>
+                    </section>
+                </div>
+            </div>
             <div className="div-movies" id="movie-list1">
                 <button className="bt-slide bt-left-slide" id="bt-left-slide1" onClick={btLeftSlide1}><i class="fas fa-angle-left"></i></button>
                 {movies.map(movie => {
